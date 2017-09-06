@@ -41,7 +41,7 @@ def get_bots():
 
 
 @app.route('/api/trade/inventory')
-# @validate_apikey
+@validate_apikey
 def get_inv():
     steam_ids = flask.request.args.get('steamid')
     if steam_ids is None:
