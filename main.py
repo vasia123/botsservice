@@ -44,6 +44,8 @@ def get_bots():
 # @validate_apikey
 def get_inv():
     steam_ids = flask.request.args.get('steamid')
+    if steam_ids is None:
+        return ''
     # app_id = flask.request.args.get('appID')
 
     inventories = parse_inv(*steam_ids.split(','))
