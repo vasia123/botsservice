@@ -5,6 +5,7 @@ import aiohttp
 import requests
 
 
+#test
 def parse_inv2(*args):  # TODO enable proxy
     resp = []
     for steam_id in args:
