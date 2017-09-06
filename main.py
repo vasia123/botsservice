@@ -1,7 +1,6 @@
 import json
 from functools import wraps
 
-import requests
 import flask
 
 from exceptions import Unauthorized
