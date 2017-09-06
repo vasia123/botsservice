@@ -43,7 +43,7 @@ def get_bots():
 @app.route('/api/trade/inventory')
 # @validate_apikey
 def get_inv():
-    steam_ids = flask.request.args.get('steamID')
+    steam_ids = flask.request.args.get('steamid')
     # app_id = flask.request.args.get('appID')
 
     inventories = parse_inv(*steam_ids.split(','))
