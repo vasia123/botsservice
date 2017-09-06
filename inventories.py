@@ -13,6 +13,7 @@ def parse_inv2(*args):  # TODO enable proxy
 
     return resp
 
+
 def parse_inv(*args):
     loop = asyncio.get_event_loop()
     tasks = [get_inv(steam_id) for steam_id in args]
