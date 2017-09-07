@@ -33,11 +33,19 @@ async def get_inv(target_id):
             text = await resp.text()
             page = json.loads(text)
 
-            if page is None:
+            if page is None:  # handles cases where steam id is invalid
                 return {'data': {
                     '440': {'message': 'HTTP error 404'},
                     '570': {'message': 'HTTP error 404'},
                     '730': {'message': 'HTTP error 404'},
+                }}
+            if page.get('error') is not None:  # handles cases where service is temporary unavailable
+                return get_inv(target_id)
+            if page['total_inventory_count'] == 0:  # handles cases where inventory is empty
+                return {'data': {
+                    '440': {},
+                    '570': {},
+                    '730': {},
                 }}
 
             descriptions = {}
